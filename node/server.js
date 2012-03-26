@@ -259,7 +259,14 @@ async.waterfall([
           res.send(html);
       });
     });
-    
+   
+    //serve spectator.html under /s
+    app.get('/s/:pad', function(req, res, next)
+    {    
+      var filePath = path.normalize(__dirname + "/../static/spectator.html");
+      res.sendfile(filePath, { maxAge: exports.maxAge });
+    });
+
     //serve pad.html under /p
     app.get('/p/:pad', function(req, res, next)
     {    
