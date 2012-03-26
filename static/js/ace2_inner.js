@@ -111,6 +111,10 @@ function Ace2Inner(){
 
   var root, doc; // set in setup()
   var isEditable = true;
+  // isEditable is overriden to false if we are on spectator mode
+  if (parent.location.pathname.substring(1,2) == 's') {
+    isEditable = false;
+  }
   var doesWrap = true;
   var hasLineNumbers = true;
   var isStyled = true;
